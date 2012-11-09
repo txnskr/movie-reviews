@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  rating: MyString
+  synopsis: MyText
+  release: 2012-11-06
+  status: false
+  score: 1
+  cost: 1.5
+
+two:
+  title: MyString
+  rating: MyString
+  synopsis: MyText
+  release: 2012-11-06
+  status: false
+  score: 1
+  cost: 1.5

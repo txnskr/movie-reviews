@@ -1,0 +1,84 @@
+  <%= form_for(@review, :html => { :multipart => true }, :builder => CustomFormBuilder) do |f| %>
+  <% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@review.errors.count, "error") %> HeeHaw you broke me!</h2>
+
+      <ul>
+      <% @review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title, :required => true  %><br />
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %><br/>
+    <%= f.file_field :image %>
+</div>
+
+<div class="field">
+  <%= f.label :country %><br/>
+  <%= f.country_select :country %>
+</div>
+
+
+
+  <!--
+  Original Scaffold Code
+    <%= f.label :rating %><br />
+    <%= f.text_field :rating %>
+  -->
+  <!--
+  Using radio buttons to display ratings
+  <fieldset>
+    <legend>Rating</legend>
+    <% Review::RATINGS.each do |label, value| %>
+      <%= f.radio_button :rating, label %>
+      <label for="<%= 'movie_rating_' + value %>">
+        <%= label %>
+      </label>
+      <br/>
+    <% end %>
+  </fieldset>
+  -->
+  <!--
+  Using a dropdown for ratings
+    <%= f.label :rating %><br />
+    <%= f.select :rating, Review::RATINGS %>
+  -->
+  <!--
+  Using the form helper to generate the radio buttons
+  -->
+    <div class="field">
+
+  <%= radio_buttons("review", Review::RATINGS, :rating, "Rating") %>
+  </div>
+  <div class="field">
+    <%= f.label :synopsis %><br />
+    <%= f.text_area :synopsis %>
+  </div>
+  <div class="field">
+    <%= f.label :release %><br />
+    <%= f.date_select :release, :start_year => 1980 %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.check_box :status %>
+  </div>
+  <div class="field">
+    <%= f.label :score %><br />
+    <%= f.number_field :score %>
+  </div>
+  <div class="field">
+    <%= f.label :cost %><br />
+    <%= f.text_field :cost %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @review.title %>
+</p>
+<p>
+
+<b>Image:</b>
+  <% if @review.has_image? %>
+    <%= image_tag @review.image_uri %> 
+      <% else %>
+    No image available 
+  <% end %>
+</p>
+
+<p>
+  <b>Country:</b>
+    <%= @review.country %> 
+</p>
+
+
+<p>
+  <b>Rating:</b>
+  <%= @review.rating %>
+</p>
+
+<p>
+  <b>Synopsis:</b>
+  <%= @review.synopsis %>
+</p>
+
+<p>
+  <b>Release:</b>
+  <%= @review.release %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @review.status %>
+</p>
+
+<p>
+  <b>Score:</b>
+  <%= @review.score %>
+</p>
+
+<p>
+  <b>Cost:</b>
+  <%= @review.cost %>
+</p>
+
+
+<%= link_to 'Edit', edit_review_path(@review) %> |
+<%= link_to 'Back', reviews_path %>
